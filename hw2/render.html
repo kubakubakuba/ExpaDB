@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>cp02</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="konceptuální-model">Konceptuální model</h1>
+<figure>
+<img src="cp1-krm.png" alt="Konceptuální model" /><figcaption>Konceptuální model</figcaption>
+</figure>
+<h1 id="relační-model">Relační model</h1>
+<ul>
+<li><p>Uživatel (<u>login</u>, heslo)</p></li>
+<li>OsobníÚdaje (<u>login</u>, jméno, <u>email</u>, telefon, PSČ, město, ulice, číslo)
+<ul>
+<li>FK: (login) ⊆ Uživatel(login)</li>
+</ul></li>
+<li>Vedoucí (<u>login</u>)
+<ul>
+<li>FK: (login) ⊆ Uživatel(login)</li>
+</ul></li>
+<li>Účastník (<u>login</u>)
+<ul>
+<li>FK: (login) ⊆ Uživatel(login)</li>
+</ul></li>
+<li><p>Skupina (<u>jméno</u>)</p></li>
+<li><p>Akce (<u>název, čas</u>, popis)</p></li>
+<li>Přednáška (<u>akce</u>, přednášející, místo)
+<ul>
+<li>FK: (akce) ⊆ Akce(název, čas)</li>
+</ul></li>
+<li>Přednášející (<u>jméno, přednáška</u>)
+<ul>
+<li>FK: (přednáška) ⊆ Přednáška(akce)</li>
+</ul></li>
+<li>Workshop (<u>akce</u>, místo)
+<ul>
+<li>FK: (akce) ⊆ Akce(název, čas)</li>
+</ul></li>
+<li>Program (<u>workshop, čas</u>)
+<ul>
+<li>FK: (workshop) ⊆ Workshop(akce)</li>
+</ul></li>
+<li><p>Vybavení (<u>inventární číslo</u>, <u>název, majitel</u>, cena)</p></li>
+<li>Má přiděleno (<u>skupina, vybavení</u>)
+<ul>
+<li>FK: (skupina) ⊆ Skupina(jméno)</li>
+<li>FK: (vybavení) ⊆ Vybavení(inventární číslo)</li>
+</ul></li>
+<li>Používá (<u>účastník, vybavení</u>)
+<ul>
+<li>FK: (účastník) ⊆ Účastník(login)</li>
+<li>FK: (vybavení) ⊆ Vybavení(inventární číslo)</li>
+</ul></li>
+<li>Je součástí (<u>skupina, účastník</u>)
+<ul>
+<li>FK: (skupina) ⊆ Skupina(jméno)</li>
+<li>FK: (účastník) ⊆ Účastník(login)</li>
+</ul></li>
+<li>Vede (<u>skupina, vedoucí</u>)
+<ul>
+<li>FK: (skupina) ⊆ Skupina(jméno)</li>
+<li>FK: (vedoucí) ⊆ Vedoucí(login)</li>
+</ul></li>
+<li>Se přihlásí na (<u>uživatel, workshop</u>)
+<ul>
+<li>FK: (uživatel) ⊆ Účastník(login)</li>
+<li>FK: (workshop) ⊆ Workshop(akce)</li>
+</ul></li>
+<li>Organizuje (<u>vedoucí, workshop</u>)
+<ul>
+<li>FK: (vedoucí) ⊆ Vedoucí(login)</li>
+<li>FK: (workshop) ⊆ Workshop(akce)</li>
+</ul></li>
+<li>Vytváří (<u>vedoucí, akce</u>)
+<ul>
+<li>FK: (vedoucí) ⊆ Vedoucí(login)</li>
+<li>FK: (akce) ⊆ Akce(název, čas)</li>
+</ul></li>
+<li>Pomáhá s organizací (<u>účastník, workshop</u>)
+<ul>
+<li>FK: (účastník) ⊆ Účastník(login)</li>
+<li>FK: (workshop) ⊆ Workshop(akce)</li>
+</ul></li>
+<li>Je povinná (<u>akce, skupina</u>)
+<ul>
+<li>FK: (akce) ⊆ Akce(název, čas)</li>
+<li>FK: (skupina) ⊆ Skupina(jméno)</li>
+</ul></li>
+<li>Je vedoucím (<u>nadřízený, podřízený</u>)
+<ul>
+<li>FK: (nadřízený) ⊆ Vedoucí(login)</li>
+<li>FK: (podřízený) ⊆ Vedoucí(login)</li>
+</ul></li>
+<li>Se účastní (<u>účastník, akce</u>)
+<ul>
+<li>FK: (účastník) ⊆ Účastník(login)</li>
+<li>FK: (akce) ⊆ Akce(název, čas)</li>
+</ul></li>
+</ul>
+</body>
+</html>

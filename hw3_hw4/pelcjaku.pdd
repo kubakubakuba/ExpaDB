@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<DBMODEL Version="1.92" TYPE="PostgreSQL">
+
+<MODELSETTINGS MDDVERSION="1.16.0 (build 1173)" ModelProject="" ModelName="pelcjaku" ModelCompany="" ModelAuthor="" ModelCopyright="" ModelVersion="" ModelVersionAI="0" ModelSaveScriptsWithVersion="0" ModelCreated="2024-04-18 02:20:48" ModelUpdated="2024-04-18 02:24:29" Description="" Annotation="" ZoomFac="100.00" XPos="0" YPos="0" PrintLink="" GenSettings="object GenSettings1: TGenSettings\n  TextCharCase = tccMixed\n  ModelCheck = True\n  DropIfExists = True\n  NotValidConstraints = False\n  ConcurrentlyIndexes = False\n  ISQL = False\n  ExecuteAfterGeneration = True\n  DBOptions = [dbgoCreate, dbgoBeginScript, dbgoEndScript]\n  ViewOptions = [viewgoCreate, viewgoCreateRule]\n  SPOptions = [spgoCreate]\n  TableOptions = [tblgoCreate, tblgoBeginScript, tblgoEndScript, tblgoComment, tblgoCreatePK, tblgoCreateFK, tblgoCreateIndex, tblgoCreateRule, tblgoCreateTrigger, tblgoCreateCHECK, tblgoFieldDefault]\n  OwnerOptions = [owngoSchema, owngoTable, owngoView, owngoSP, owngoSequence, owngoUDT]\n  ACLOptions = [aclgoSchema, aclgoTable, aclgoView, aclgoSP, aclgoSequence]\n  ModifyOptions = [mgoKeepTbls, mgoBackupTbls, mgoTraceRenaming]\n  RoleCreate = True\n  RoleWhenCreate = rocrInScript\n  SQLTypeNames = False\nend\n" DisplaySettings="object DisplaySettings1: TDisplaySettings\n  ObjectsDisplay = [edoColumns, edoInhColumns, edoIndices, edoConstraints, edoTriggers, edoRules, edoColTypes, edoFKs, rdoRefName, spdoParameters, spdoResult, spdoParamTypes, spdoParamKind, vdoAttributes, vdoTargets, vdoRules]\n  Color = clWhite\n  ShowIcons = True\n  SnapGrid = True\n  DisplaySnap = True\n  SnapSize = 10\n  ShowPages = True\n  EntityFillColor = clWhite\n  EntityLineColor = clNavy\n  EntityFontColor = clBlack\n  SPFillColor = clCream\n  SPLineColor = clNavy\n  SPFontColor = clBlack\n  ViewFillColor = clMoneyGreen\n  ViewLineColor = clNavy\n  ViewFontColor = clBlack\n  RefNotation = 0\n  RefColor = clNavy\n  RefLabelColor = clWhite\n  RefLabelFontColor = clBlack\n  MinimapShapesStyle = mmssFillAndBorder\n  MinimapVisibleAreaStyle = mmvasBitmapShading\n  MinimapBackColor = clWhite\nend\n" DefaultDelete="3" DefaultUpdate="3" DefaultDataType="23" DefaultSchemaID="0" NamePatterns="" QueryDelimiter=";" DBQuoteCharacter="\A" EncloseNames="1" PKColumnsFirst="0" HPageCount="5" VPageCount="5" />
+
+<DATABASE Name="Database_1" CharacterSet="" Collate="" CType="" Tablespace="" Owner="" Template="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="0" />
+
+<STAMPS>
+</STAMPS>
+
+<ROLES>
+<ROLE ID="6171" Name="pg_database_owner" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="6181" Name="pg_read_all_data" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="6182" Name="pg_write_all_data" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="3373" Name="pg_monitor" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="3374" Name="pg_read_all_settings" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="3375" Name="pg_read_all_stats" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="3377" Name="pg_stat_scan_tables" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="4569" Name="pg_read_server_files" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="4570" Name="pg_write_server_files" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="4571" Name="pg_execute_server_program" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="4200" Name="pg_signal_backend" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="4544" Name="pg_checkpoint" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="4550" Name="pg_use_reserved_connections" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="6304" Name="pg_create_subscription" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="0" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="10" Name="postgres" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="1" SuperUser="1" CreateRole="1" Inherit="1" UpdateCatalogs="0" Login="1" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="16394" Name="qtrvsim" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="1" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+<ROLE ID="16603" Name="pelcjaku" Roles="" Admins="" Generate="0" Comments="" Password="" CreateDB="0" SuperUser="0" CreateRole="0" Inherit="1" UpdateCatalogs="0" Login="1" PassEncrypted="0" Valid="2958465.99999"></ROLE>
+</ROLES>
+
+<SCHEMAS>
+<SCHEMA ID="0" Name="public" Owner="" Generate="0" Comments="" System="1" ACL=""></SCHEMA>
+</SCHEMAS>
+
+<SEQUENCES>
+</SEQUENCES>
+
+<DOMAINS>
+</DOMAINS>
+
+<COMPOSITES>
+<COMPOSITE ID="10000" Name="akce" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25503">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10001" Name="jepovinna" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25668">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10002" Name="jesoucasti" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25590">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10003" Name="jevedoucim" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25681">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10004" Name="maprirazeno" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25564">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10005" Name="organizuje" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25629">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10006" Name="pomahaorganizovat" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25655">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10007" Name="pouziva" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25577">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10008" Name="prednasejici" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25524">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10009" Name="prednaska" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25513">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10010" Name="program" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25547">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10011" Name="seprihlasujena" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25616">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10012" Name="seucastni" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25694">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10013" Name="skupina" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25497">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10014" Name="ucastnik" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25487">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10015" Name="uzivatel" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25469">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10016" Name="vede" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25603">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10017" Name="vedouci" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25477">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10018" Name="vybaveni" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25558">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10019" Name="vytvari" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25642">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10020" Name="workshop" SchemaName="public" OwnerName="" Comments="" MasterTableOID="25537">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+</COMPOSITES>
+
+<SCALARS>
+</SCALARS>
+
+<ENUMS>
+</ENUMS>
+
+<TABLESPACES>
+</TABLESPACES>
+
+<METADATA>
+<ENTITIES>
+<ENTITY ID="25503" Name="akce" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="40" YPos="490" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="1" Name="id_akce" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="2" Name="nazev" Pos="2" Datatype="1043" Type="varchar" Width="64" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3" Name="cas" Pos="3" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="4" Name="popis" Pos="4" Datatype="25" Type="text" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="25671" />
+		<REFERENCE_BEGIN ID="25518" />
+		<REFERENCE_BEGIN ID="25702" />
+		<REFERENCE_BEGIN ID="25650" />
+		<REFERENCE_BEGIN ID="25542" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="25510" Name="akce_pkey" Kind="2" Expression="" ReferenceIndex="25509" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="1"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="25512" Name="akce_nazev_cas_key" Kind="1" Expression="" ReferenceIndex="25511" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="2,3"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="25509" Name="akce_pkey" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25510" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id_akce"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+		<INDEX ID="25511" Name="akce_nazev_cas_key" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25512" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="nazev,cas"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="25668" Name="jepovinna" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="160" YPos="360" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="5" Name="id_akce" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="6" Name="skupina" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25671" />
+		<REFERENCE_END ID="25676" />
+	</REFERENCES_END>
+</ENTITY>
+
+<ENTITY ID="25590" Name="jesoucasti" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="430" YPos="400" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="7" Name="login" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="8" Name="skupina" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25593" />
+		<REFERENCE_END ID="25593" />
+		<REFERENCE_END ID="25598" />
+	</REFERENCES_END>
+</ENTITY>
+
+<ENTITY ID="25681" Name="jevedoucim" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="240" YPos="30" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="9" Name="nadrizeny" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="10" Name="podrizeny" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25684" />
+		<REFERENCE_END ID="25684" />
+		<REFERENCE_END ID="25689" />
+		<REFERENCE_END ID="25689" />
+	</REFERENCES_END>
+</ENTITY>
+
+<ENTITY ID="25564" Name="maprirazeno" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="710" YPos="150" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="11" Name="skupina" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="12" Name="inventarni_cislo" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25567" />
+		<REFERENCE_END ID="25572" />
+	</REFERENCES_END>
+</ENTITY>
+
+<ENTITY ID="25629" Name="organizuje" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="260" YPos="840" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="13" Name="login" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="14" Name="id_akce" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25632" />
+		<REFERENCE_END ID="25632" />
+		<REFERENCE_END ID="25637" />
+		<REFERENCE_END ID="25637" />
+	</REFERENCES_END>
+</ENTITY>
+
+<ENTITY ID="25655" Name="pomahaorganizovat" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="720" YPos="640" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="15" Name="login" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="16" Name="id_akce" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25658" />
+		<REFERENCE_END ID="25658" />
+		<REFERENCE_END ID="25663" />
+		<REFERENCE_END ID="25663" />
+	</REFERENCES_END>
+</ENTITY>
+
+<ENTITY ID="25577" Name="pouziva" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="1030" YPos="440" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="17" Name="login" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="18" Name="inventarni_cislo" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25580" />
+		<REFERENCE_END ID="25580" />
+		<REFERENCE_END ID="25585" />
+	</REFERENCES_END>
+</ENTITY>
+
+<ENTITY ID="25524" Name="prednasejici" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="50" YPos="790" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="19" Name="id_prednasejici" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="20" Name="jmeno" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="21" Name="id_akce" Pos="3" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25532" />
+		<REFERENCE_END ID="25532" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="25529" Name="prednasejici_pkey" Kind="2" Expression="" ReferenceIndex="25528" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="19"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="25531" Name="prednasejici_jmeno_id_akce_key" Kind="1" Expression="" ReferenceIndex="25530" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="20,21"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="25528" Name="prednasejici_pkey" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25529" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id_prednasejici"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+		<INDEX ID="25530" Name="prednasejici_jmeno_id_akce_key" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25531" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="jmeno,id_akce"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="25513" Name="prednaska" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="80" YPos="660" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="22" Name="id_akce" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="1" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="23" Name="misto" Pos="2" Datatype="1043" Type="varchar" Width="64" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="25532" />
+		<REFERENCE_BEGIN ID="25532" />
+	</REFERENCES_BEGIN>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25518" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="25517" Name="prednaska_pkey" Kind="2" Expression="" ReferenceIndex="25516" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="22"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="25516" Name="prednaska_pkey" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25517" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id_akce"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="25547" Name="program" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="460" YPos="810" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="24" Name="cas_polozky" Pos="1" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="25" Name="nazev" Pos="2" Datatype="1043" Type="varchar" Width="64" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="26" Name="id_akce" Pos="3" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25552" />
+		<REFERENCE_END ID="25552" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="25551" Name="program_pkey" Kind="2" Expression="" ReferenceIndex="25550" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="24"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="25550" Name="program_pkey" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25551" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="cas_polozky"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="25616" Name="seprihlasujena" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="490" YPos="540" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="27" Name="login" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="28" Name="id_akce" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25619" />
+		<REFERENCE_END ID="25619" />
+		<REFERENCE_END ID="25624" />
+		<REFERENCE_END ID="25624" />
+	</REFERENCES_END>
+</ENTITY>
+
+<ENTITY ID="25694" Name="seucastni" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="410" YPos="470" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="29" Name="login" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="30" Name="id_akce" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25697" />
+		<REFERENCE_END ID="25697" />
+		<REFERENCE_END ID="25702" />
+	</REFERENCES_END>
+</ENTITY>
+
+<ENTITY ID="25497" Name="skupina" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="590" YPos="300" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="31" Name="jmeno" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="25676" />
+		<REFERENCE_BEGIN ID="25598" />
+		<REFERENCE_BEGIN ID="25567" />
+		<REFERENCE_BEGIN ID="25611" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="25501" Name="skupina_pkey" Kind="2" Expression="" ReferenceIndex="25500" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="31"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="25500" Name="skupina_pkey" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25501" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="jmeno"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="25487" Name="ucastnik" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="730" YPos="450" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="32" Name="login" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="1" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="25593" />
+		<REFERENCE_BEGIN ID="25593" />
+		<REFERENCE_BEGIN ID="25658" />
+		<REFERENCE_BEGIN ID="25658" />
+		<REFERENCE_BEGIN ID="25580" />
+		<REFERENCE_BEGIN ID="25580" />
+		<REFERENCE_BEGIN ID="25619" />
+		<REFERENCE_BEGIN ID="25619" />
+		<REFERENCE_BEGIN ID="25697" />
+		<REFERENCE_BEGIN ID="25697" />
+	</REFERENCES_BEGIN>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25492" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="25491" Name="ucastnik_pkey" Kind="2" Expression="" ReferenceIndex="25490" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="32"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="25490" Name="ucastnik_pkey" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25491" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="login"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="25469" Name="uzivatel" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="40" YPos="0" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="33" Name="login" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="34" Name="heslo" Pos="2" Datatype="1043" Type="varchar" Width="128" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="35" Name="salt" Pos="3" Datatype="1043" Type="varchar" Width="32" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="36" Name="jmeno" Pos="4" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="37" Name="email" Pos="5" Datatype="1043" Type="varchar" Width="64" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="38" Name="telefon" Pos="6" Datatype="1043" Type="varchar" Width="16" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="39" Name="psc" Pos="7" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="40" Name="mesto" Pos="8" Datatype="1043" Type="varchar" Width="64" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="41" Name="ulice" Pos="9" Datatype="1043" Type="varchar" Width="64" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="42" Name="cislo" Pos="10" Datatype="1043" Type="varchar" Width="16" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="25492" />
+		<REFERENCE_BEGIN ID="25482" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="25472" Name="uzivatel_psc_check" Kind="0" Expression="psc \g= 10000 AND psc \k= 99999" ReferenceIndex="0" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="39"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="25474" Name="uzivatel_pkey" Kind="2" Expression="" ReferenceIndex="25473" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="33"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="25476" Name="uzivatel_email_key" Kind="1" Expression="" ReferenceIndex="25475" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="37"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="25473" Name="uzivatel_pkey" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25474" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="login"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+		<INDEX ID="25475" Name="uzivatel_email_key" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25476" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="email"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="25603" Name="vede" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="530" YPos="140" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="43" Name="login" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="44" Name="skupina" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25606" />
+		<REFERENCE_END ID="25606" />
+		<REFERENCE_END ID="25611" />
+	</REFERENCES_END>
+</ENTITY>
+
+<ENTITY ID="25477" Name="vedouci" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="260" YPos="250" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="45" Name="login" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="1" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="25684" />
+		<REFERENCE_BEGIN ID="25684" />
+		<REFERENCE_BEGIN ID="25689" />
+		<REFERENCE_BEGIN ID="25689" />
+		<REFERENCE_BEGIN ID="25632" />
+		<REFERENCE_BEGIN ID="25632" />
+		<REFERENCE_BEGIN ID="25606" />
+		<REFERENCE_BEGIN ID="25606" />
+		<REFERENCE_BEGIN ID="25645" />
+		<REFERENCE_BEGIN ID="25645" />
+	</REFERENCES_BEGIN>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25482" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="25481" Name="vedouci_pkey" Kind="2" Expression="" ReferenceIndex="25480" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="45"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="25480" Name="vedouci_pkey" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25481" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="login"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="25558" Name="vybaveni" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="1020" YPos="130" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="46" Name="inventarni_cislo" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="47" Name="nazev" Pos="2" Datatype="1043" Type="varchar" Width="64" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="48" Name="majitel" Pos="3" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="49" Name="cena" Pos="4" Datatype="1700" Type="numeric" Width="10" Prec="2" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="25572" />
+		<REFERENCE_BEGIN ID="25585" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="25563" Name="vybaveni_pkey" Kind="2" Expression="" ReferenceIndex="25562" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="46"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="25562" Name="vybaveni_pkey" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25563" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="inventarni_cislo"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="25642" Name="vytvari" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="20" YPos="280" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="50" Name="login" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="51" Name="id_akce" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25645" />
+		<REFERENCE_END ID="25645" />
+		<REFERENCE_END ID="25650" />
+	</REFERENCES_END>
+</ENTITY>
+
+<ENTITY ID="25537" Name="workshop" SchemaOID="0" SchemaName="public" OwnerID="16603" OwnerName="pelcjaku" TablespaceID="0" XPos="320" YPos="640" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777215" LineColor="8388608" FontColor="0" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="52" Name="id_akce" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="1" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="53" Name="misto" Pos="2" Datatype="1043" Type="varchar" Width="64" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="25637" />
+		<REFERENCE_BEGIN ID="25637" />
+		<REFERENCE_BEGIN ID="25663" />
+		<REFERENCE_BEGIN ID="25663" />
+		<REFERENCE_BEGIN ID="25552" />
+		<REFERENCE_BEGIN ID="25552" />
+		<REFERENCE_BEGIN ID="25624" />
+		<REFERENCE_BEGIN ID="25624" />
+	</REFERENCES_BEGIN>
+	<REFERENCES_END>
+		<REFERENCE_END ID="25542" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="25541" Name="workshop_pkey" Kind="2" Expression="" ReferenceIndex="25540" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="52"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="25540" Name="workshop_pkey" Unique="1" Method="1" Predicate="" TablespaceID="0" ReferenceConstraint="25541" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id_akce"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+</ENTITIES>
+
+<REFERENCES>
+<REFERENCE ID="25671" Name="jepovinna_id_akce_fkey" SOURCE="25503" DESTINATION="25668" FKIDS="1=5\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25510" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25676" Name="jepovinna_skupina_fkey" SOURCE="25497" DESTINATION="25668" FKIDS="31=6\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25501" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25593" Name="jesoucasti_login_fkey" SOURCE="25487" DESTINATION="25590" FKIDS="32=7\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25492" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25593" Name="jesoucasti_login_fkey" SOURCE="25487" DESTINATION="25590" FKIDS="32=7\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25491" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25598" Name="jesoucasti_skupina_fkey" SOURCE="25497" DESTINATION="25590" FKIDS="31=8\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25501" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25684" Name="jevedoucim_nadrizeny_fkey" SOURCE="25477" DESTINATION="25681" FKIDS="45=9\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25482" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25684" Name="jevedoucim_nadrizeny_fkey" SOURCE="25477" DESTINATION="25681" FKIDS="45=9\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25481" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25689" Name="jevedoucim_podrizeny_fkey" SOURCE="25477" DESTINATION="25681" FKIDS="45=10\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25482" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25689" Name="jevedoucim_podrizeny_fkey" SOURCE="25477" DESTINATION="25681" FKIDS="45=10\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25481" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25567" Name="maprirazeno_skupina_fkey" SOURCE="25497" DESTINATION="25564" FKIDS="31=11\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25501" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25572" Name="maprirazeno_inventarni_cislo_fkey" SOURCE="25558" DESTINATION="25564" FKIDS="46=12\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25563" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25632" Name="organizuje_login_fkey" SOURCE="25477" DESTINATION="25629" FKIDS="45=13\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25482" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25632" Name="organizuje_login_fkey" SOURCE="25477" DESTINATION="25629" FKIDS="45=13\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25481" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25637" Name="organizuje_id_akce_fkey" SOURCE="25537" DESTINATION="25629" FKIDS="52=14\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25542" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25637" Name="organizuje_id_akce_fkey" SOURCE="25537" DESTINATION="25629" FKIDS="52=14\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25541" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25658" Name="pomahaorganizovat_login_fkey" SOURCE="25487" DESTINATION="25655" FKIDS="32=15\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25492" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25658" Name="pomahaorganizovat_login_fkey" SOURCE="25487" DESTINATION="25655" FKIDS="32=15\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25491" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25663" Name="pomahaorganizovat_id_akce_fkey" SOURCE="25537" DESTINATION="25655" FKIDS="52=16\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25542" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25663" Name="pomahaorganizovat_id_akce_fkey" SOURCE="25537" DESTINATION="25655" FKIDS="52=16\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25541" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25580" Name="pouziva_login_fkey" SOURCE="25487" DESTINATION="25577" FKIDS="32=17\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25492" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25580" Name="pouziva_login_fkey" SOURCE="25487" DESTINATION="25577" FKIDS="32=17\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25491" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25585" Name="pouziva_inventarni_cislo_fkey" SOURCE="25558" DESTINATION="25577" FKIDS="46=18\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25563" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25532" Name="prednasejici_id_akce_fkey" SOURCE="25513" DESTINATION="25524" FKIDS="22=21\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25518" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25532" Name="prednasejici_id_akce_fkey" SOURCE="25513" DESTINATION="25524" FKIDS="22=21\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25517" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25518" Name="prednaska_id_akce_fkey" SOURCE="25503" DESTINATION="25513" FKIDS="1=22\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="1" OnUpdate="1" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25510" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25552" Name="program_id_akce_fkey" SOURCE="25537" DESTINATION="25547" FKIDS="52=26\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25542" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25552" Name="program_id_akce_fkey" SOURCE="25537" DESTINATION="25547" FKIDS="52=26\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25541" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25619" Name="seprihlasujena_login_fkey" SOURCE="25487" DESTINATION="25616" FKIDS="32=27\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25492" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25619" Name="seprihlasujena_login_fkey" SOURCE="25487" DESTINATION="25616" FKIDS="32=27\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25491" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25624" Name="seprihlasujena_id_akce_fkey" SOURCE="25537" DESTINATION="25616" FKIDS="52=28\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25542" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25624" Name="seprihlasujena_id_akce_fkey" SOURCE="25537" DESTINATION="25616" FKIDS="52=28\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25541" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25697" Name="seucastni_login_fkey" SOURCE="25487" DESTINATION="25694" FKIDS="32=29\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25492" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25697" Name="seucastni_login_fkey" SOURCE="25487" DESTINATION="25694" FKIDS="32=29\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25491" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25702" Name="seucastni_id_akce_fkey" SOURCE="25503" DESTINATION="25694" FKIDS="1=30\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25510" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25492" Name="ucastnik_login_fkey" SOURCE="25469" DESTINATION="25487" FKIDS="33=32\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="1" OnUpdate="1" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25474" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25606" Name="vede_login_fkey" SOURCE="25477" DESTINATION="25603" FKIDS="45=43\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25482" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25606" Name="vede_login_fkey" SOURCE="25477" DESTINATION="25603" FKIDS="45=43\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25481" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25611" Name="vede_skupina_fkey" SOURCE="25497" DESTINATION="25603" FKIDS="31=44\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25501" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25482" Name="vedouci_login_fkey" SOURCE="25469" DESTINATION="25477" FKIDS="33=45\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="1" OnUpdate="1" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25474" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25645" Name="vytvari_login_fkey" SOURCE="25477" DESTINATION="25642" FKIDS="45=50\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25482" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25645" Name="vytvari_login_fkey" SOURCE="25477" DESTINATION="25642" FKIDS="45=50\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25481" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25650" Name="vytvari_id_akce_fkey" SOURCE="25503" DESTINATION="25642" FKIDS="1=51\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25510" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+<REFERENCE ID="25542" Name="workshop_id_akce_fkey" SOURCE="25503" DESTINATION="25537" FKIDS="1=52\n" Direction="0" RefColor="8388608" RefLabelColor="16777215" RefLabelFontColor="0" OnDelete="1" OnUpdate="1" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="25510" LabelPointNumber="2" LabelPosition="0.5" ManualStartTailPosition="0" ManualEndTailPosition="0" />
+	<USERPOINTS>
+	</USERPOINTS>
+</REFERENCE>
+</REFERENCES>
+
+<NOTES>
+</NOTES>
+
+<STOREDPROCES>
+</STOREDPROCES>
+
+<VIEWS>
+</VIEWS>
+
+</METADATA>
+</DBMODEL>

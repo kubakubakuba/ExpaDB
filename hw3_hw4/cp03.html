@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>cp03.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="konceptu%C3%A1ln%C3%AD-model">Konceptuální model</h1>
+<p><img src="img/cp1-krm.png" alt="Konceptuální model"></p>
+<h1 id="rela%C4%8Dn%C3%AD-model">Relační model</h1>
+<ul>
+<li>
+<p>Uživatel (<u>login</u>, heslo)</p>
+</li>
+<li>
+<p>Osobní Údaje (<u>login</u>, jméno, <u>email</u>, telefon, PSČ, město, ulice, číslo)</p>
+<ul>
+<li>FK: (login) ⊆ Uživatel(login)</li>
+</ul>
+</li>
+<li>
+<p>Vedoucí (<u>login</u>)</p>
+<ul>
+<li>FK: (login) ⊆ Uživatel(login)</li>
+</ul>
+</li>
+<li>
+<p>Účastník (<u>login</u>)</p>
+<ul>
+<li>FK: (login) ⊆ Uživatel(login)</li>
+</ul>
+</li>
+<li>
+<p>Skupina (<u>jméno</u>)</p>
+</li>
+<li>
+<p>Akce (<u>název, čas</u>)</p>
+</li>
+<li>
+<p>AkcePopis (<u>název, čas, popis</u>)</p>
+<ul>
+<li>FK: (název, čas) ⊆ Akce(název, čas)</li>
+</ul>
+</li>
+<li>
+<p>Přednáška (<u>název, čas</u>, místo)</p>
+<ul>
+<li>FK: (název, čas) ⊆ Akce(název, čas)</li>
+</ul>
+</li>
+<li>
+<p>Přednášející (<u>jméno, název, čas</u>)</p>
+<ul>
+<li>FK: (název, čas) ⊆ Přednáška(název, čas)</li>
+</ul>
+</li>
+<li>
+<p>Workshop (<u>název, čas</u>, místo)</p>
+<ul>
+<li>FK: (název, čas) ⊆ Akce(název, čas)</li>
+</ul>
+</li>
+<li>
+<p>Program (<u>čas položky, název, čas</u>)</p>
+<ul>
+<li>FK: (název, čas) ⊆ Workshop(název, čas)</li>
+</ul>
+</li>
+<li>
+<p>Vybavení (<u>inventární číslo</u>, <u>název, majitel</u>)</p>
+</li>
+<li>
+<p>VybaveníCena (<u>inventární číslo, cena</u>)</p>
+<ul>
+<li>FK: (inventární číslo) ⊆ Vybavení(inventární číslo)</li>
+</ul>
+</li>
+<li>
+<p>Má přiděleno (<u>skupina, vybavení</u>)</p>
+<ul>
+<li>FK: (skupina) ⊆ Skupina(jméno)</li>
+<li>FK: (vybavení) ⊆ Vybavení(inventární číslo)</li>
+</ul>
+</li>
+<li>
+<p>Používá (<u>účastník, vybavení</u>)</p>
+<ul>
+<li>FK: (účastník) ⊆ Účastník(login)</li>
+<li>FK: (vybavení) ⊆ Vybavení(inventární číslo)</li>
+</ul>
+</li>
+<li>
+<p>Je součástí (<u>skupina, účastník</u>)</p>
+<ul>
+<li>FK: (skupina) ⊆ Skupina(jméno)</li>
+<li>FK: (účastník) ⊆ Účastník(login)</li>
+</ul>
+</li>
+<li>
+<p>Vede (<u>skupina, vedoucí</u>)</p>
+<ul>
+<li>FK: (skupina) ⊆ Skupina(jméno)</li>
+<li>FK: (vedoucí) ⊆ Vedoucí(login)</li>
+</ul>
+</li>
+<li>
+<p>Se přihlašuje na (<u>uživatel, workshop</u>)</p>
+<ul>
+<li>FK: (uživatel) ⊆ Uživatel(login)</li>
+<li>FK: (workshop) ⊆ Workshop(akce)</li>
+</ul>
+</li>
+<li>
+<p>Organizuje (<u>vedoucí, workshop</u>)</p>
+<ul>
+<li>FK: (vedoucí) ⊆ Vedoucí(login)</li>
+<li>FK: (workshop) ⊆ Workshop(akce)</li>
+</ul>
+</li>
+<li>
+<p>Vytváří (<u>vedoucí, akce</u>)</p>
+<ul>
+<li>FK: (vedoucí) ⊆ Vedoucí(login)</li>
+<li>FK: (akce) ⊆ Akce(název, čas)</li>
+</ul>
+</li>
+<li>
+<p>Pomáhá organizovat (<u>účastník, workshop</u>)</p>
+<ul>
+<li>FK: (účastník) ⊆ Účastník(login)</li>
+<li>FK: (workshop) ⊆ Workshop(akce)</li>
+</ul>
+</li>
+<li>
+<p>Je povinná (<u>akce, skupina</u>)</p>
+<ul>
+<li>FK: (akce) ⊆ Akce(název, čas)</li>
+<li>FK: (skupina) ⊆ Skupina(jméno)</li>
+</ul>
+</li>
+<li>
+<p>Je vedoucím (<u>nadřízený, podřízený</u>)</p>
+<ul>
+<li>FK: (nadřízený) ⊆ Vedoucí(login)</li>
+<li>FK: (podřízený) ⊆ Vedoucí(login)</li>
+</ul>
+</li>
+<li>
+<p>Se účastní (<u>účastník, akce</u>)</p>
+<ul>
+<li>FK: (účastník) ⊆ Účastník(login)</li>
+<li>FK: (akce) ⊆ Akce(název, čas)</li>
+</ul>
+</li>
+</ul>
+<div style="page-break-after: always;"></div>
+<h1 id="er-model">ER Model</h1>
+<p><img src="img/er.png" alt="ER Model"></p>
+<div style="page-break-after: always;"></div>
+<h1 id="sql-tabulky">SQL Tabulky</h1>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Uzivatel (
+	id_uzivatel <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+	login <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	heslo <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">128</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">salt</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">32</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	jmeno <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>),
+	email <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>),
+	telefon <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">23</span>),
+	psc <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">CHECK</span> (psc &gt;= <span class="hljs-number">10000</span> <span class="hljs-keyword">AND</span> psc &lt;= <span class="hljs-number">99999</span>),
+	mesto <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>),
+	ulice <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>),
+	cislo <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">16</span>),
+	<span class="hljs-keyword">UNIQUE</span> (login)
+);
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Skupina (
+	id_skupina <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+	jmeno <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">UNIQUE</span> (jmeno)
+);
+
+<span class="hljs-comment">/* ON DELETE CASCADE je použito, protože pokud smažeme uživatele, tak záznam v tabulce vedoucích ztrácí smysl. */</span>
+<span class="hljs-comment">/* ON UPDATE CASCADE je použito, protože pokud změníme skupinu kterou vedoucí vede, musíme také změnit skupinu v tabulce vedoucích. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Vedouci (
+	id_uzivatel <span class="hljs-built_in">INTEGER</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+	vede <span class="hljs-built_in">INT</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_uzivatel) <span class="hljs-keyword">REFERENCES</span> Uzivatel <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (vede) <span class="hljs-keyword">REFERENCES</span> Skupina(id_skupina) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">CASCADE</span>
+);
+
+<span class="hljs-comment">/* ON DELETE a ON UPDATE CASCADE je podobné jako u tabulky Vedouci. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Ucastnik (
+	id_uzivatel <span class="hljs-built_in">INTEGER</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+	soucasti_skupiny <span class="hljs-built_in">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_uzivatel) <span class="hljs-keyword">REFERENCES</span> Uzivatel <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (soucasti_skupiny) <span class="hljs-keyword">REFERENCES</span> Skupina(id_skupina) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">CASCADE</span>
+);
+</div></code></pre>
+<div style="page-break-after: always;"></div>
+<pre class="hljs"><code><div><span class="hljs-comment">/* Po smazání uživatele smažeme akce které vytvořil. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Akce (
+	id_akce <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+	created_by <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	nazev <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	cas <span class="hljs-built_in">TIMESTAMP</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	popis <span class="hljs-built_in">TEXT</span>,
+	<span class="hljs-keyword">UNIQUE</span> (nazev, cas),
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (created_by) <span class="hljs-keyword">REFERENCES</span> Vedouci(id_uzivatel) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>
+);
+<span class="hljs-comment">/* Při smazání akce, smažeme i záznam v tabulce Prednaska. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Prednaska (
+	id_akce <span class="hljs-built_in">INTEGER</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_akce) <span class="hljs-keyword">REFERENCES</span> Akce <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	misto <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+);
+<span class="hljs-comment">/* Při smazání akce, smažeme i záznam v tabulce Prednasejici. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Prednasejici (
+	id_prednasejici <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+	jmeno <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	id_akce <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_akce) <span class="hljs-keyword">REFERENCES</span> Prednaska <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">UNIQUE</span> (jmeno, id_akce)
+);
+<span class="hljs-comment">/* Při smazání akce, smažeme i záznam v tabulce Workshop. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Workshop (
+	id_akce <span class="hljs-built_in">INTEGER</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_akce) <span class="hljs-keyword">REFERENCES</span> Akce <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	misto <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+);
+<span class="hljs-comment">/* Při smazání akce, smažeme i záznam v tabulce Program. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Program (
+	id_program <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+	cas_polozky <span class="hljs-built_in">TIMESTAMP</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	nazev <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	id_akce <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_akce) <span class="hljs-keyword">REFERENCES</span> Workshop <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">UNIQUE</span> (cas_polozky, id_akce)
+);
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Vybaveni (
+	id_vybaveni <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+	inventarni_cislo <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	nazev <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	majitel <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">64</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	cena <span class="hljs-built_in">DECIMAL</span>(<span class="hljs-number">10</span>,<span class="hljs-number">2</span>),
+	<span class="hljs-keyword">UNIQUE</span> (inventarni_cislo),
+	<span class="hljs-keyword">UNIQUE</span> (nazev, majitel)
+);
+</div></code></pre>
+<div style="page-break-after: always;"></div>
+<pre class="hljs"><code><div><span class="hljs-comment">/* Při změně / smazání skupiny nebo vybavení, musíme */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> MaPrirazeno (
+	id_skupina <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	id_vybaveni <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_skupina) <span class="hljs-keyword">REFERENCES</span> Skupina <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_vybaveni) <span class="hljs-keyword">REFERENCES</span> Vybaveni <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+);
+<span class="hljs-comment">/* Při smazání uživatele nebo vybaveni, smažeme i záznam v tabulce Pouziva. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Pouziva (
+	id_uzivatel <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	id_vybaveni <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_uzivatel) <span class="hljs-keyword">REFERENCES</span> Uzivatel <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_vybaveni) <span class="hljs-keyword">REFERENCES</span> Vybaveni <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>
+);
+<span class="hljs-comment">/* Při smazání akce nebo uživatele, smažeme i záznam v tabulce SePrihlasujeNa. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> SePrihlasujeNa (
+	id_uzivatel <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	id_akce <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_uzivatel) <span class="hljs-keyword">REFERENCES</span> Ucastnik <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_akce) <span class="hljs-keyword">REFERENCES</span> Workshop <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+);
+<span class="hljs-comment">/* Při smazání vedoucího nebo akce, smažeme i záznam v tabulce Organizuje. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Organizuje (
+	id_uzivatel <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	id_akce <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_uzivatel) <span class="hljs-keyword">REFERENCES</span> Vedouci <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_akce) <span class="hljs-keyword">REFERENCES</span> Workshop <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">UNIQUE</span> (id_uzivatel, id_akce)
+);
+<span class="hljs-comment">/* Při smazání účastníka nebo akce, smažeme i záznam v tabulce PomahaOrganizovat. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> PomahaOrganizovat (
+	id_uzivatel <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	id_akce <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_uzivatel) <span class="hljs-keyword">REFERENCES</span> Ucastnik <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_akce) <span class="hljs-keyword">REFERENCES</span> Workshop <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">UNIQUE</span> (id_uzivatel, id_akce)
+);
+<span class="hljs-comment">/* Při smazání akce nebo skupiny smažeme i záznam v tabulce JePovinna. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> JePovinna (
+	id_akce <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	id_skupina <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_akce) <span class="hljs-keyword">REFERENCES</span> Akce <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_skupina) <span class="hljs-keyword">REFERENCES</span> Skupina <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">UNIQUE</span> (id_akce, id_skupina)
+);
+</div></code></pre>
+<div style="page-break-after: always;"></div>
+<pre class="hljs"><code><div><span class="hljs-comment">/* Při smazání vedoucího - podřízeného nebo nadřízeného, smažeme i záznam v tabulce JeVedoucim. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> JeVedoucim (
+	nadrizeny <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	podrizeny <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (nadrizeny) <span class="hljs-keyword">REFERENCES</span> Vedouci(id_uzivatel) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (podrizeny) <span class="hljs-keyword">REFERENCES</span> Vedouci(id_uzivatel) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">UNIQUE</span> (nadrizeny, podrizeny)
+);
+
+<span class="hljs-comment">/* Při smazání účastníka nebo akce, smažeme i záznam v tabulce SeUcastni. */</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> SeUcastni (
+	id_uzivatel <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	id_akce <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_uzivatel) <span class="hljs-keyword">REFERENCES</span> Ucastnik <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (id_akce) <span class="hljs-keyword">REFERENCES</span> Akce <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>,
+	<span class="hljs-keyword">UNIQUE</span> (id_uzivatel, id_akce)
+);
+</div></code></pre>
+<h2 id="data">Data</h2>
+<p>Pro generování dat jsem použil knihovnu <code>faker</code>, data jsem vygeneroval do <code>.sql</code> souborů, které pak za pomoci <code>psql</code> nahrávám na server.</p>
+<h2 id="sql-dotazy">SQL Dotazy</h2>
+<p>Vylistování všech vedoucích (a skupin které vedou), kteří nemají vyplněno telefonní číslo.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> Uzivatel.login, Uzivatel.jmeno, Skupina.jmeno <span class="hljs-keyword">AS</span> skupina_jmeno <span class="hljs-keyword">FROM</span> Uzivatel
+	<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> Vedouci <span class="hljs-keyword">ON</span> Uzivatel.id_uzivatel = Vedouci.id_uzivatel
+	<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> Skupina <span class="hljs-keyword">ON</span> Vedouci.vede = Skupina.id_skupina
+	<span class="hljs-keyword">WHERE</span> Uzivatel.telefon <span class="hljs-keyword">IS</span> <span class="hljs-literal">NULL</span>
+	<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> Uzivatel.login <span class="hljs-keyword">ASC</span> <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">10</span>;
+</div></code></pre>
+<p><img src="img/vedouci.png" alt="vedouci"></p>
+<p>Výpis všech akcí, které se konaly v prvním týdnu v dubnu (vždy mezi půlnocí a 8:00), s uživateli, kterými byly vytvořeny.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> Akce.nazev, Akce.cas, Uzivatel.jmeno <span class="hljs-keyword">AS</span> zalozil <span class="hljs-keyword">FROM</span> Akce
+	<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> Vedouci <span class="hljs-keyword">ON</span> Akce.created_by = Vedouci.id_uzivatel
+	<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> Uzivatel <span class="hljs-keyword">ON</span> Vedouci.id_uzivatel = Uzivatel.id_uzivatel
+	<span class="hljs-keyword">WHERE</span> Akce.cas &gt;= <span class="hljs-string">'2024-04-01'</span> <span class="hljs-keyword">AND</span> Akce.cas &lt;= <span class="hljs-string">'2024-04-07'</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">EXTRACT</span>(<span class="hljs-keyword">HOUR</span> <span class="hljs-keyword">FROM</span> Akce.cas) &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">EXTRACT</span>(<span class="hljs-keyword">HOUR</span> <span class="hljs-keyword">FROM</span> Akce.cas) &lt; <span class="hljs-number">8</span>
+	<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> Akce.cas <span class="hljs-keyword">ASC</span>;
+</div></code></pre>
+<p><img src="img/akce.png" alt="akce"></p>
+<p>Zobrazí uživatele, kteří se přihlásili na nejvíce workshopů.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> Uzivatel.login, Uzivatel.jmeno, <span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">AS</span> pocet <span class="hljs-keyword">FROM</span> Uzivatel
+	<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> SePrihlasujeNa <span class="hljs-keyword">ON</span> Uzivatel.id_uzivatel = SePrihlasujeNa.id_uzivatel
+	<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> Uzivatel.jmeno, Uzivatel.login
+	<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> pocet <span class="hljs-keyword">DESC</span>
+	<span class="hljs-keyword">LIMIT</span> <span class="hljs-number">10</span>;
+</div></code></pre>
+<p><img src="img/max_workshops.png" alt="max workshops"></p>
+<p>Vypíše přes vnořený SELECT všechny kusy vybavení (název, majitele, cenu, inventárni číslo), která mají cenu, která je vyšší než 10000 korun, a vybavení (název) začíná na <code>Fujifilm</code>, <code>DJI</code> nebo <code>RED Digital Cinema</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> nazev, majitel, cena, inventarni_cislo <span class="hljs-keyword">FROM</span> Vybaveni
+	<span class="hljs-keyword">WHERE</span> cena &gt; <span class="hljs-number">10000</span> <span class="hljs-keyword">AND</span> nazev <span class="hljs-keyword">IN</span> (
+		<span class="hljs-keyword">SELECT</span> nazev <span class="hljs-keyword">FROM</span> Vybaveni
+			<span class="hljs-keyword">WHERE</span> nazev <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'Fujifilm%'</span> <span class="hljs-keyword">OR</span> nazev <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'DJI%'</span> <span class="hljs-keyword">OR</span> nazev <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'RED Digital Cinema%'</span>
+	)
+	<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> cena <span class="hljs-keyword">DESC</span>, nazev <span class="hljs-keyword">ASC</span>
+	<span class="hljs-keyword">LIMIT</span> <span class="hljs-number">10</span>;
+</div></code></pre>
+<p><img src="img/nested.png" alt="nested"></p>
+<div style="page-break-after: always;"></div>
+<p>Spočítá průměrnou cenu vybavení, které je buďto <code>Canon EOS 5D</code>, <code>Canon EOS 6D</code> nebo <code>Canon EOS 7D</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">AVG</span>(cena) <span class="hljs-keyword">FROM</span> Vybaveni
+	<span class="hljs-keyword">WHERE</span> nazev <span class="hljs-keyword">IN</span> (<span class="hljs-string">'Canon EOS 5D'</span>, <span class="hljs-string">'Canon EOS 6D'</span>, <span class="hljs-string">'Canon EOS 7D'</span>) <span class="hljs-keyword">AND</span> cena <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>;
+</div></code></pre>
+<p><img src="img/average.png" alt="average"></p>
+<p>Zobrazí skupiny, které mají průměrnou cenu vybavení vyšší než 25 500.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> Skupina.jmeno, <span class="hljs-keyword">AVG</span>(Vybaveni.cena) <span class="hljs-keyword">AS</span> prumerna_cena <span class="hljs-keyword">FROM</span> Skupina
+	<span class="hljs-keyword">JOIN</span> MaPrirazeno <span class="hljs-keyword">ON</span> Skupina.id_skupina = MaPrirazeno.id_skupina
+	<span class="hljs-keyword">JOIN</span> Vybaveni <span class="hljs-keyword">ON</span> MaPrirazeno.id_vybaveni = Vybaveni.id_vybaveni
+	<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> Skupina.jmeno
+	<span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">AVG</span>(Vybaveni.cena) &gt; <span class="hljs-number">25500</span> <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> prumerna_cena <span class="hljs-keyword">DESC</span>;
+</div></code></pre>
+<p><img src="img/average_groups.png" alt="average groups"></p>
+<p>Zobrazí druhých 10 vybavení s cenou v rozmezí 10-15k zaokrouhlenou na celá čísla, seřazených podle ceny, jména a jména majitele.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> Vybaveni.nazev, Vybaveni.majitel, <span class="hljs-keyword">ROUND</span>(Vybaveni.cena) <span class="hljs-keyword">AS</span> cena <span class="hljs-keyword">FROM</span> Vybaveni
+	<span class="hljs-keyword">WHERE</span> Vybaveni.cena &gt;= <span class="hljs-number">10000</span> <span class="hljs-keyword">AND</span> Vybaveni.cena &lt;= <span class="hljs-number">15000</span>
+	<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> cena, Vybaveni.nazev, Vybaveni.majitel
+	<span class="hljs-keyword">LIMIT</span> <span class="hljs-number">10</span> <span class="hljs-keyword">OFFSET</span> <span class="hljs-number">10</span>;
+</div></code></pre>
+<p><img src="img/offset.png" alt="offset"></p>
+<p>Vypíše login, jméno, id skupiny a jméno skupiny uživatelů, kteří jsou v nějaké skupině. Pokud uživatel není v žádné skupině, vypíše se NULL.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> U.login, U.jmeno, S.jmeno <span class="hljs-keyword">AS</span> skupina_jmeno
+<span class="hljs-keyword">FROM</span> Uzivatel U
+<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">OUTER</span> <span class="hljs-keyword">JOIN</span> Ucastnik UC <span class="hljs-keyword">ON</span> U.id_uzivatel = UC.id_uzivatel
+<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">OUTER</span> <span class="hljs-keyword">JOIN</span> Skupina S <span class="hljs-keyword">ON</span> UC.soucasti_skupiny = S.id_skupina
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> U.id_uzivatel <span class="hljs-keyword">ASC</span> <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">15</span>;
+</div></code></pre>
+<p><img src="img/groups.png" alt="user groups"></p>
+
+</body>
+</html>
